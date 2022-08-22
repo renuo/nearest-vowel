@@ -1,3 +1,4 @@
+#Nice little challenge to learn ruby :)
 class Searcher
   VOWELS = %w[a e i o u ä ö ü A E I O U Ä Ö Ü]
 
@@ -13,23 +14,23 @@ class Searcher
       end
 
       j = chars.length
-      if next_vowel<=0
-        while j>i
+      if next_vowel <= 0
+        while j > i
           if VOWELS.include? chars[j]
-            next_vowel = j-i
+            next_vowel = j - i
           end
-          j-=1
+          j -= 1
         end
       end
 
-      if last_vowel>next_vowel && next_vowel>=0
+      if last_vowel > next_vowel && next_vowel >= 0
         chars[i] = next_vowel
       else
         chars[i] = last_vowel
       end
-      last_vowel+=1
-      next_vowel-=1
-      i+=1
+      last_vowel += 1
+      next_vowel -= 1
+      i += 1
     end
     chars
   end
