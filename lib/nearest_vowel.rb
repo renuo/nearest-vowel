@@ -4,22 +4,21 @@ class Searcher
 
   def nearest_vowel(str)
     chars = str.split(//)
-    i = 0
     last_vowel = chars.length
     next_vowel = 0
 
-    while i < chars.length
+    for i in 0..chars.length-1
       if VOWELS.include? chars[i]
         last_vowel = 0;
       end
 
-      j = chars.length
       if next_vowel <= 0
-        while j > i
+        #Reverse for-loop
+        for j in -(chars.length-1)..-i
+          j = -j
           if VOWELS.include? chars[j]
             next_vowel = j - i
           end
-          j -= 1
         end
       end
 
@@ -30,8 +29,8 @@ class Searcher
       end
       last_vowel += 1
       next_vowel -= 1
-      i += 1
     end
+
     chars
   end
 end
